@@ -1,0 +1,12 @@
+{
+  "name": "tOSU-Uptime",
+  "version": "0.0.1",
+  "main": "app.js",
+  "description": " A long-term up-time tracker",
+  "dependencies": {
+    "debug": "^2.6.8",
+    "node-machine-id": "^1.1.7",
+    "pinkie": "^2.0.4",
+    "rest": "^2.0.0"
+  }
+}
