@@ -5,20 +5,13 @@ const $npm = {
   debug:          require('debug')('tOSU-Update:app'),
   EventEmitter:   require('events'),
   Promise:        require('pinkie'),
-  rest:           require('rest')
+  rest:           require('rest'),
+  config:         require('./config.json') //if must be created with: .codes.stillUp
 };
 
 const myEmitter = new $npm.EventEmitter();
 
-// $npm
-//   .rest('https://tosu-uptime.azurewebsites.net/api/debugTest1?code=8nIU/NFZFzOQwg36GwLIWx7Y4J6lqFDkZIxFHo3QZVA3aaRL7Wc1zg==&name=tOUS-upTime')
-//   .then((r) => {
-//     $npm.debug('basic test worked, apparently.', r);
-//   })
-//   .catch( (er) => {
-//     $npm.debug('basic test FAILED.', er)
-//     process.exit(2);
-//   });
+
 
 
 // This should tick
@@ -58,7 +51,7 @@ function trackUptime(myMachineId) {
 function restCall(id) {
 
   var d = {
-    path: "https://tosu-uptime.azurewebsites.net/api/stillUp?code=jjx6X58VA6PJnv95q3mE6zFJHahwbwMBtJOhUCdajfiQrPOHHRFxjQ==",
+    path: `https://tosu-uptime.azurewebsites.net/api/stillUp?code=${$npm.configs.codes.stillUp}`,
     method: 'POST',
     headers: {machineId: id}
   };
